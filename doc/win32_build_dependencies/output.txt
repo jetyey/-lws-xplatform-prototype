@@ -1,0 +1,670 @@
+source: https://ci.appveyor.com/project/lws-team/libwebsockets/build/job/0m726c453ml5vb02
+
+Environment: LWS_METHOD=x64, CMAKE_ARGS=-DCMAKE_GENERATOR_PLATFORM=x64 -DLWS_WITH_HTTP2=1 -DLWS_WITH_PLUGINS=1 -DLIBUV_INCLUDE_DIRS=C:\assets\libuv64\include -DLIBUV_LIBRARIES=C:\assets\libuv64\libuv.lib
+
+[00:00:00] Build started
+[00:00:00] git clone -q --branch=master https://github.com/warmcat/libwebsockets.git C:\projects\libwebsockets
+[00:00:04] git checkout -qf 9bd910493026e8bc80efc86700484ee415f7a338
+[00:00:04] Running Install scripts
+[00:00:04] appveyor DownloadFile https://libwebsockets.org:444/win-libuv.zip
+[00:00:06] 
+[00:00:06] Downloading win-libuv.zip (196,103 bytes)...5%
+[00:00:06] Downloading win-libuv.zip (196,103 bytes)...30%
+[00:00:06] Downloading win-libuv.zip (196,103 bytes)...80%
+[00:00:06] Downloading win-libuv.zip (196,103 bytes)...100%
+[00:00:06] mkdir c:\assets
+[00:00:06] mkdir c:\assets\libuv
+[00:00:07] 7z x -oc:\assets\libuv win-libuv.zip
+[00:00:07] 
+[00:00:07] 7-Zip 19.00 (x64) : Copyright (c) 1999-2018 Igor Pavlov : 2019-02-21
+[00:00:07] 
+[00:00:07] Scanning the drive for archives:
+[00:00:07] 1 file, 196103 bytes (192 KiB)
+[00:00:07] 
+[00:00:07] Extracting archive: win-libuv.zip
+[00:00:07] --
+[00:00:07] Path = win-libuv.zip
+[00:00:07] Type = zip
+[00:00:07] Physical Size = 196103
+[00:00:07] 
+[00:00:07] Everything is Ok
+[00:00:07] 
+[00:00:07] Folders: 2
+[00:00:07] Files: 14
+[00:00:07] Size:       467015
+[00:00:07] Compressed: 196103
+[00:00:07] appveyor DownloadFile https://libwebsockets.org:444/win-libuv64.zip
+[00:00:08] 
+[00:00:09] Downloading win-libuv64.zip (118,676 bytes)...7%
+[00:00:09] Downloading win-libuv64.zip (118,676 bytes)...90%
+[00:00:09] Downloading win-libuv64.zip (118,676 bytes)...100%
+[00:00:09] mkdir c:\assets\libuv64
+[00:00:09] 7z x -oc:\assets\libuv64 win-libuv64.zip
+[00:00:09] 
+[00:00:09] 7-Zip 19.00 (x64) : Copyright (c) 1999-2018 Igor Pavlov : 2019-02-21
+[00:00:09] 
+[00:00:09] Scanning the drive for archives:
+[00:00:09] 1 file, 118676 bytes (116 KiB)
+[00:00:09] 
+[00:00:09] Extracting archive: win-libuv64.zip
+[00:00:09] --
+[00:00:09] Path = win-libuv64.zip
+[00:00:09] Type = zip
+[00:00:09] Physical Size = 118676
+[00:00:09] 
+[00:00:09] Everything is Ok
+[00:00:09] 
+[00:00:09] Folders: 1
+[00:00:09] Files: 8
+[00:00:09] Size:       364665
+[00:00:09] Compressed: 118676
+[00:00:09] appveyor DownloadFile https://libwebsockets.org:444/nsis-3.0rc1-setup.exe
+[00:00:10] 
+[00:00:11] Downloading nsis-3.0rc1-setup.exe (1,701,017 bytes)...1%
+[00:00:12] Downloading nsis-3.0rc1-setup.exe (1,701,017 bytes)...10%
+[00:00:12] Downloading nsis-3.0rc1-setup.exe (1,701,017 bytes)...20%
+[00:00:13] Downloading nsis-3.0rc1-setup.exe (1,701,017 bytes)...30%
+[00:00:14] Downloading nsis-3.0rc1-setup.exe (1,701,017 bytes)...40%
+[00:00:15] Downloading nsis-3.0rc1-setup.exe (1,701,017 bytes)...50%
+[00:00:18] Downloading nsis-3.0rc1-setup.exe (1,701,017 bytes)...60%
+[00:00:19] Downloading nsis-3.0rc1-setup.exe (1,701,017 bytes)...70%
+[00:00:20] Downloading nsis-3.0rc1-setup.exe (1,701,017 bytes)...80%
+[00:00:21] Downloading nsis-3.0rc1-setup.exe (1,701,017 bytes)...90%
+[00:00:21] Downloading nsis-3.0rc1-setup.exe (1,701,017 bytes)...100%
+[00:00:21] cmd /c start /wait nsis-3.0rc1-setup.exe /S /D=C:\nsis
+[00:00:22] appveyor DownloadFile https://libwebsockets.org:444/sqlite-dll-win32-x86-3130000.zip
+[00:00:23] 
+[00:00:24] Downloading sqlite-dll-win32-x86-3130000.zip (564,431 bytes)...2%
+[00:00:24] Downloading sqlite-dll-win32-x86-3130000.zip (564,431 bytes)...40%
+[00:00:24] Downloading sqlite-dll-win32-x86-3130000.zip (564,431 bytes)...50%
+[00:00:24] Downloading sqlite-dll-win32-x86-3130000.zip (564,431 bytes)...60%
+[00:00:24] Downloading sqlite-dll-win32-x86-3130000.zip (564,431 bytes)...70%
+[00:00:24] Downloading sqlite-dll-win32-x86-3130000.zip (564,431 bytes)...80%
+[00:00:24] Downloading sqlite-dll-win32-x86-3130000.zip (564,431 bytes)...90%
+[00:00:24] Downloading sqlite-dll-win32-x86-3130000.zip (564,431 bytes)...100%
+[00:00:24] mkdir c:\assets\sqlite3
+[00:00:24] 7z x -oc:\assets\sqlite3 sqlite-dll-win32-x86-3130000.zip
+[00:00:24] 
+[00:00:24] 7-Zip 19.00 (x64) : Copyright (c) 1999-2018 Igor Pavlov : 2019-02-21
+[00:00:24] 
+[00:00:24] Scanning the drive for archives:
+[00:00:24] 1 file, 564431 bytes (552 KiB)
+[00:00:24] 
+[00:00:24] Extracting archive: sqlite-dll-win32-x86-3130000.zip
+[00:00:24] --
+[00:00:24] Path = sqlite-dll-win32-x86-3130000.zip
+[00:00:24] Type = zip
+[00:00:24] Physical Size = 564431
+[00:00:24] 
+[00:00:24] Everything is Ok
+[00:00:24] 
+[00:00:24] Files: 6
+[00:00:24] Size:       1365905
+[00:00:24] Compressed: 564431
+[00:00:24] SET PATH=C:\Program Files\NSIS\;C:\Program Files (x86)\NSIS\;c:\nsis;%PATH%
+[00:00:24] md build
+[00:00:24] cd build
+[00:00:24] cmake -DCMAKE_BUILD_TYPE=Release %CMAKE_ARGS% ..
+[00:00:25] -- Building for: Visual Studio 14 2015
+[00:00:34] -- The C compiler identification is MSVC 19.0.24241.7
+[00:00:34] -- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/x86_amd64/cl.exe
+[00:00:38] -- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/x86_amd64/cl.exe -- works
+[00:00:38] -- Detecting C compiler ABI info
+[00:00:42] -- Detecting C compiler ABI info - done
+[00:00:42] -- Detecting C compile features
+[00:00:42] -- Detecting C compile features - done
+[00:00:42] -- No LWS_WITH_DIR or LWS_WITH_LEJP_CONF
+[00:00:42] LWS_WITH_DIR OFF
+[00:00:42] -- CMAKE_TOOLCHAIN_FILE=''
+[00:00:42] -- Found Git: C:/Program Files/Git/cmd/git.exe  
+[00:00:42] Git commit hash: v4.0.0-41-g9bd91049
+[00:00:42] -- LWS_WITH_PLUGINS --> Enabling LWS_WITH_LIBUV
+[00:00:42] -- Performing Test LWS_HAVE_inline
+[00:00:47] -- Performing Test LWS_HAVE_inline - Success
+[00:00:47] -- Performing Test LWS_HAVE___inline__
+[00:00:49] -- Performing Test LWS_HAVE___inline__ - Failed
+[00:00:49] -- Performing Test LWS_HAVE___inline
+[00:00:52] -- Performing Test LWS_HAVE___inline - Success
+[00:00:53] -- Performing Test LWS_HAVE_MALLOC_TRIM
+[00:00:54] -- Performing Test LWS_HAVE_MALLOC_TRIM - Failed
+[00:00:54] -- Performing Test LWS_HAVE_MALLOC_USABLE_SIZE
+[00:00:56] -- Performing Test LWS_HAVE_MALLOC_USABLE_SIZE - Failed
+[00:00:56] -- Looking for fork
+[00:00:58] -- Looking for fork - not found
+[00:00:58] -- Looking for getenv
+[00:01:03] -- Looking for getenv - found
+[00:01:03] -- Looking for malloc
+[00:01:07] -- Looking for malloc - found
+[00:01:07] -- Looking for memset
+[00:01:11] -- Looking for memset - found
+[00:01:11] -- Looking for realloc
+[00:01:15] -- Looking for realloc - found
+[00:01:15] -- Looking for socket
+[00:01:17] -- Looking for socket - not found
+[00:01:17] -- Looking for strerror
+[00:01:22] -- Looking for strerror - found
+[00:01:22] -- Looking for vfork
+[00:01:24] -- Looking for vfork - not found
+[00:01:24] -- Looking for execvpe
+[00:01:28] -- Looking for execvpe - found
+[00:01:28] -- Looking for getifaddrs
+[00:01:30] -- Looking for getifaddrs - not found
+[00:01:30] -- Looking for snprintf
+[00:01:32] -- Looking for snprintf - not found
+[00:01:32] -- Looking for _snprintf
+[00:01:34] -- Looking for _snprintf - not found
+[00:01:34] -- Looking for _vsnprintf
+[00:01:36] -- Looking for _vsnprintf - not found
+[00:01:36] -- Looking for getloadavg
+[00:01:38] -- Looking for getloadavg - not found
+[00:01:38] -- Looking for atoll
+[00:01:42] -- Looking for atoll - found
+[00:01:42] -- Looking for _atoi64
+[00:01:46] -- Looking for _atoi64 - found
+[00:01:46] -- Looking for _stat32i64
+[00:01:51] -- Looking for _stat32i64 - found
+[00:01:51] -- Looking for clock_gettime
+[00:01:53] -- Looking for clock_gettime - not found
+[00:01:53] -- Looking for eventfd
+[00:01:55] -- Looking for eventfd - not found
+[00:01:55] -- Looking for dlfcn.h
+[00:01:57] -- Looking for dlfcn.h - not found
+[00:01:57] -- Looking for fcntl.h
+[00:02:01] -- Looking for fcntl.h - found
+[00:02:01] -- Looking for in6addr.h
+[00:02:03] -- Looking for in6addr.h - not found
+[00:02:03] -- Looking for memory.h
+[00:02:07] -- Looking for memory.h - found
+[00:02:07] -- Looking for netinet/in.h
+[00:02:09] -- Looking for netinet/in.h - not found
+[00:02:09] -- Looking for stdint.h
+[00:02:14] -- Looking for stdint.h - found
+[00:02:14] -- Looking for stdlib.h
+[00:02:18] -- Looking for stdlib.h - found
+[00:02:18] -- Looking for strings.h
+[00:02:20] -- Looking for strings.h - not found
+[00:02:20] -- Looking for string.h
+[00:02:24] -- Looking for string.h - found
+[00:02:24] -- Looking for sys/prctl.h
+[00:02:26] -- Looking for sys/prctl.h - not found
+[00:02:26] -- Looking for sys/socket.h
+[00:02:28] -- Looking for sys/socket.h - not found
+[00:02:28] -- Looking for sys/sockio.h
+[00:02:29] -- Looking for sys/sockio.h - not found
+[00:02:29] -- Looking for sys/stat.h
+[00:02:34] -- Looking for sys/stat.h - found
+[00:02:34] -- Looking for sys/types.h
+[00:02:38] -- Looking for sys/types.h - found
+[00:02:38] -- Looking for unistd.h
+[00:02:40] -- Looking for unistd.h - not found
+[00:02:40] -- Looking for vfork.h
+[00:02:42] -- Looking for vfork.h - not found
+[00:02:42] -- Looking for sys/capability.h
+[00:02:43] -- Looking for sys/capability.h - not found
+[00:02:43] -- Looking for malloc.h
+[00:02:47] -- Looking for malloc.h - found
+[00:02:47] -- Looking for pthread.h
+[00:02:49] -- Looking for pthread.h - not found
+[00:02:49] -- Looking for inttypes.h
+[00:02:53] -- Looking for inttypes.h - found
+[00:02:53] -- Looking for cap_set_flag in cap
+[00:02:55] -- Looking for cap_set_flag in cap - not found
+[00:02:55] -- Looking for uv-version.h
+[00:02:57] -- Looking for uv-version.h - not found
+[00:02:57] -- Looking for uv/version.h
+[00:02:59] -- Looking for uv/version.h - not found
+[00:02:59] -- Looking for 4 include files stdlib.h, ..., float.h
+[00:03:03] -- Looking for 4 include files stdlib.h, ..., float.h - found
+[00:03:03] -- Performing Test LWS_HAS_INTPTR_T
+[00:03:07] -- Performing Test LWS_HAS_INTPTR_T - Success
+[00:03:07] -- Performing Test LWS_HAS_GETOPT_LONG
+[00:03:08] -- Performing Test LWS_HAS_GETOPT_LONG - Failed
+[00:03:08] Compiling with SSL support
+[00:03:08] -- Found OpenSSL: optimized;C:/OpenSSL-Win64/lib/VC/libeay32MD.lib;debug;C:/OpenSSL-Win64/lib/VC/libeay32MDd.lib (found version "1.0.2u")  
+[00:03:08] OpenSSL include dir: C:/OpenSSL-Win64/include
+[00:03:08] OpenSSL libraries: optimized;C:/OpenSSL-Win64/lib/VC/ssleay32MD.lib;debug;C:/OpenSSL-Win64/lib/VC/ssleay32MDd.lib;C:/OpenSSL-Win64/lib/VC/libeay32MD.lib;C:/OpenSSL-Win64/lib/VC/libeay32MDd.lib
+[00:03:08] -- Looking for openssl/ecdh.h
+[00:03:12] -- Looking for openssl/ecdh.h - found
+[00:03:12] libuv include dir: C:/assets/libuv64/include
+[00:03:12] libuv libraries: C:/assets/libuv64/libuv.lib
+[00:03:12] -- Looking for SSL_CTX_set1_param
+[00:03:16] -- Looking for SSL_CTX_set1_param - found
+[00:03:16] -- Looking for SSL_set_info_callback
+[00:03:21] -- Looking for SSL_set_info_callback - found
+[00:03:21] -- Looking for X509_VERIFY_PARAM_set1_host
+[00:03:25] -- Looking for X509_VERIFY_PARAM_set1_host - found
+[00:03:25] -- Looking for RSA_set0_key
+[00:03:27] -- Looking for RSA_set0_key - not found
+[00:03:27] -- Looking for X509_get_key_usage
+[00:03:29] -- Looking for X509_get_key_usage - not found
+[00:03:29] -- Looking for EVP_PKEY_new_raw_private_key
+[00:03:31] -- Looking for EVP_PKEY_new_raw_private_key - not found
+[00:03:31] -- Looking for SSL_CTX_get0_certificate
+[00:03:35] -- Looking for SSL_CTX_get0_certificate - found
+[00:03:35] -- Looking for SSL_get0_alpn_selected
+[00:03:40] -- Looking for SSL_get0_alpn_selected - found
+[00:03:40] -- Looking for SSL_set_alpn_protos
+[00:03:44] -- Looking for SSL_set_alpn_protos - found
+[00:03:44] -- Looking for EVP_aes_128_cfb8
+[00:03:48] -- Looking for EVP_aes_128_cfb8 - found
+[00:03:48] -- Looking for EVP_aes_128_cfb128
+[00:03:53] -- Looking for EVP_aes_128_cfb128 - found
+[00:03:53] -- Looking for EVP_aes_192_cfb8
+[00:03:57] -- Looking for EVP_aes_192_cfb8 - found
+[00:03:57] -- Looking for EVP_aes_192_cfb128
+[00:04:01] -- Looking for EVP_aes_192_cfb128 - found
+[00:04:01] -- Looking for EVP_aes_256_cfb8
+[00:04:05] -- Looking for EVP_aes_256_cfb8 - found
+[00:04:05] -- Looking for EVP_aes_256_cfb128
+[00:04:09] -- Looking for EVP_aes_256_cfb128 - found
+[00:04:09] -- Looking for EVP_aes_128_xts
+[00:04:13] -- Looking for EVP_aes_128_xts - found
+[00:04:13] -- Looking for RSA_verify_pss_mgf1
+[00:04:15] -- Looking for RSA_verify_pss_mgf1 - not found
+[00:04:15] -- Looking for HMAC_CTX_new
+[00:04:17] -- Looking for HMAC_CTX_new - not found
+[00:04:17] -- Looking for SSL_CTX_set_ciphersuites
+[00:04:19] -- Looking for SSL_CTX_set_ciphersuites - not found
+[00:04:19] -- Performing Test LWS_HAVE_SSL_EXTRA_CHAIN_CERTS
+[00:04:24] -- Performing Test LWS_HAVE_SSL_EXTRA_CHAIN_CERTS - Success
+[00:04:24] -- Performing Test LWS_HAVE_EVP_MD_CTX_free
+[00:04:26] -- Performing Test LWS_HAVE_EVP_MD_CTX_free - Failed
+[00:04:26] -- Looking for ECDSA_SIG_set0
+[00:04:28] -- Looking for ECDSA_SIG_set0 - not found
+[00:04:28] -- Looking for BN_bn2binpad
+[00:04:30] -- Looking for BN_bn2binpad - not found
+[00:04:30] -- Looking for EVP_aes_128_wrap
+[00:04:34] -- Looking for EVP_aes_128_wrap - found
+[00:04:34] -- Looking for EC_POINT_get_affine_coordinates
+[00:04:36] -- Looking for EC_POINT_get_affine_coordinates - not found
+[00:04:36] -- Looking for TLS_client_method
+[00:04:38] -- Looking for TLS_client_method - not found
+[00:04:38] -- Looking for TLSv1_2_client_method
+[00:04:42] -- Looking for TLSv1_2_client_method - found
+[00:04:42] -- Performing Test LWS_HAVE_PIPE2
+[00:04:44] -- Performing Test LWS_HAVE_PIPE2 - Failed
+[00:04:44] -- Performing Test LWS_HAVE_MBEDTLS_NET_SOCKETS
+[00:04:46] -- Performing Test LWS_HAVE_MBEDTLS_NET_SOCKETS - Failed
+[00:04:46] -- Performing Test LWS_HAVE_TCP_USER_TIMEOUT
+[00:04:48] -- Performing Test LWS_HAVE_TCP_USER_TIMEOUT - Failed
+[00:04:48] Searching for OpenSSL executable and dlls
+[00:04:48] OpenSSL executable: C:/Program Files (x86)/Subversion/bin/openssl.exe
+[00:04:48]  GENCERTS = 1
+[00:04:48] Generating SSL Certificates for the test-server...
+[00:04:48] OPENSSL_INPUT_WIN_PATH = C:\projects\libwebsockets\build\openssl_input.txt
+[00:04:48] cmd = "C:/Program Files (x86)/Subversion/bin/openssl.exe" req -new -newkey rsa:1024 -days 10000 -nodes -x509 -keyout "C:/projects/libwebsockets/build/libwebsockets-test-server.key.pem" -out "C:/projects/libwebsockets/build/libwebsockets-test-server.pem"
+[00:04:48] 
+[00:04:48] 
+[00:04:48] SUCCSESFULLY generated SSL certificate
+[00:04:48] OpenSSL dlls found:
+[00:04:48]   Libeay: C:/OpenSSL-Win64/bin/libeay32.dll
+[00:04:48]   SSLeay: C:/OpenSSL-Win64/bin/ssleay32.dll
+[00:04:48] -- RPM tools not available on Win32 systems
+[00:04:48] ---------------------------------------------------------------------
+[00:04:48]   Settings:  (For more help do cmake -LH <srcpath>)
+[00:04:48] ---------------------------------------------------------------------
+[00:04:48]  LWS_WITH_STATIC = ON
+[00:04:48]  LWS_WITH_SHARED = ON
+[00:04:48]  LWS_WITH_SSL = ON (SSL Support)
+[00:04:48]  LWS_SSL_CLIENT_USE_OS_CA_CERTS = 1
+[00:04:48]  LWS_WITH_WOLFSSL = OFF (wolfSSL/CyaSSL replacement for OpenSSL)
+[00:04:48]  LWS_WITH_MBEDTLS = OFF (mbedTLS replacement for OpenSSL)
+[00:04:48]  LWS_WITHOUT_BUILTIN_SHA1 = OFF
+[00:04:48]  LWS_WITHOUT_BUILTIN_GETIFADDRS = OFF
+[00:04:48]  LWS_WITHOUT_CLIENT = OFF
+[00:04:48]  LWS_WITHOUT_SERVER = OFF
+[00:04:48]  LWS_LINK_TESTAPPS_DYNAMIC = OFF
+[00:04:48]  LWS_WITHOUT_TESTAPPS = OFF
+[00:04:48]  LWS_WITHOUT_TEST_SERVER = OFF
+[00:04:48]  LWS_WITHOUT_TEST_SERVER_EXTPOLL = OFF
+[00:04:48]  LWS_WITHOUT_TEST_PING = OFF
+[00:04:48]  LWS_WITHOUT_TEST_CLIENT = OFF
+[00:04:48]  LWS_WITHOUT_EXTENSIONS = ON
+[00:04:48]  LWS_WITHOUT_DAEMONIZE = ON
+[00:04:48]  LWS_WITH_LIBEV = OFF
+[00:04:48]  LWS_WITH_LIBUV = 1
+[00:04:48]  LWS_WITH_LIBEVENT = OFF
+[00:04:48]  LWS_WITH_GLIB = OFF
+[00:04:48]  LWS_IPV6 = OFF
+[00:04:48]  LWS_UNIX_SOCK = 0
+[00:04:48]  LWS_WITH_HTTP2 = 1
+[00:04:48]  LWS_ROLE_MQTT = OFF
+[00:04:48]  LWS_SSL_SERVER_WITH_ECDH_CERT = OFF
+[00:04:48]  LWS_MAX_SMP = 1
+[00:04:48]  LWS_HAVE_PTHREAD_H = 
+[00:04:48]  LWS_WITH_CGI = OFF
+[00:04:48]  LWS_HAVE_OPENSSL_ECDH_H = 1
+[00:04:48]  LWS_HAVE_SSL_CTX_set1_param = 1
+[00:04:48]  LWS_HAVE_RSA_SET0_KEY = 
+[00:04:48]  LWS_WITH_HTTP_PROXY = OFF
+[00:04:48]  LIBHUBBUB_LIBRARIES = 
+[00:04:48]  PLUGINS = protocol_dumb_increment;protocol_lws_mirror;protocol_lws_status;protocol_lws_table_dirlisting;protocol_client_loopback_test;protocol_post_demo;protocol_lws_ssh_base;protocol_lws_sshd_demo
+[00:04:48]  LWS_WITH_ACCESS_LOG = OFF
+[00:04:48]  LWS_WITH_SERVER_STATUS = OFF
+[00:04:48]  LWS_WITH_LEJP = ON
+[00:04:48]  LWS_WITH_LEJP_CONF = OFF
+[00:04:48]  LWS_WITH_GENERIC_SESSIONS = OFF
+[00:04:48]  LWS_STATIC_PIC = OFF
+[00:04:48]  LWS_WITH_RANGES = OFF
+[00:04:48]  LWS_PLAT_OPTEE = OFF
+[00:04:48]  LWS_PLAT_FREERTOS = OFF
+[00:04:48]  LWS_WITH_ZIP_FOPS = OFF
+[00:04:48]  LWS_AVOID_SIGPIPE_IGN = OFF
+[00:04:48]  LWS_WITH_STATS = OFF
+[00:04:48]  LWS_WITH_SOCKS5 = OFF
+[00:04:48]  LWS_HAVE_SYS_CAPABILITY_H = 
+[00:04:48]  LWS_HAVE_LIBCAP = 
+[00:04:48]  LWS_WITH_PEER_LIMITS = OFF
+[00:04:48]  LWS_HAVE_ATOLL = 1
+[00:04:48]  LWS_HAVE__ATOI64 = 1
+[00:04:48]  LWS_HAVE_STAT32I64 = 
+[00:04:48]  LWS_HAS_INTPTR_T = 1
+[00:04:48]  LWS_WITH_EXPORT_LWSTARGETS = ON
+[00:04:48]  LWS_WITH_ABSTRACT = 
+[00:04:48] ---------------------------------------------------------------------
+[00:04:48] -- Configuring done
+[00:04:48] -- Generating done
+[00:04:49] -- Build files have been written to: C:/projects/libwebsockets/build
+[00:04:49] cmake --build . --config Release
+[00:04:49] Microsoft (R) Build Engine version 14.0.25420.1
+[00:04:49] Copyright (C) Microsoft Corporation. All rights reserved.
+[00:04:49] 
+[00:04:50]   Checking Build System
+[00:04:50]   Building Custom Rule C:/projects/libwebsockets/CMakeLists.txt
+[00:04:51]   alloc.c
+[00:04:51]   buflist.c
+[00:04:51]   context.c
+[00:04:51]   lws_dll2.c
+[00:04:52]   libwebsockets.c
+[00:04:52]   logs.c
+[00:04:52]   system.c
+[00:04:53]   base64-decode.c
+[00:04:53]   lws-ring.c
+[00:04:53]   vfs.c
+[00:04:53]   dummy-callback.c
+[00:04:53]   output.c
+[00:04:54]   close.c
+[00:04:54]   network.c
+[00:04:54]   vhost.c
+[00:04:54]   pollfd.c
+[00:04:55]   service.c
+[00:04:55]   sorted-usec-list.c
+[00:04:55]   state.c
+[00:04:56]   stats.c
+[00:04:56]   Generating Code...
+[00:04:56]   Compiling...
+[00:04:56]   wsi.c
+[00:04:56]   wsi-timeout.c
+[00:04:57]   adopt.c
+[00:04:57]   ops-pipe.c
+[00:04:57]   sequencer.c
+[00:04:57]   header.c
+[00:04:58]   parsers.c
+[00:04:58]   ops-h1.c
+[00:04:58]   ops-ws.c
+[00:04:58]   client-ws.c
+[00:04:59]   client-parser-ws.c
+[00:04:59]   server-ws.c
+[00:04:59]   ops-raw-skt.c
+[00:04:59]   ops-raw-file.c
+[00:04:59]   lwsac.c
+[00:05:00]   cached-file.c
+[00:05:00]   connect.c
+[00:05:00]   client.c
+[00:05:00]   client-http.c
+[00:05:01]   client-handshake.c
+[00:05:01]   Generating Code...
+[00:05:01]   Compiling...
+[00:05:01]   ops-listen.c
+[00:05:02]   tls.c
+[00:05:02]   tls-network.c
+[00:05:02]   openssl-tls.c
+[00:05:02]   openssl-x509.c
+[00:05:03]   openssl-ssl.c
+[00:05:03]   lws-genhash.c
+[00:05:03]   lws-genrsa.c
+[00:05:03]   lws-genaes.c
+[00:05:04]   lws-genec-common.c
+[00:05:04]   lws-genec.c
+[00:05:04]   lws-gencrypto.c
+[00:05:04]   tls-server.c
+[00:05:05]   openssl-server.c
+[00:05:05]   tls-client.c
+[00:05:05]   openssl-client.c
+[00:05:05]   sha-1.c
+[00:05:06]   http2.c
+[00:05:06]   hpack.c
+[00:05:06]   ops-h2.c
+[00:05:06]   Generating Code...
+[00:05:07]   Compiling...
+[00:05:07]   windows-fds.c
+[00:05:07]   windows-file.c
+[00:05:07]   windows-init.c
+[00:05:07]   windows-misc.c
+[00:05:08]   windows-pipe.c
+[00:05:08]   windows-plugins.c
+[00:05:08]   windows-service.c
+[00:05:08]   windows-sockets.c
+[00:05:09]   lws-spa.c
+[00:05:09]   poll.c
+[00:05:09]   libuv.c
+[00:05:09]   lejp.c
+[00:05:10]   lws-gencrypto-common.c
+[00:05:10]   gettimeofday.c
+[00:05:10]   Generating Code...
+[00:05:11]   server.c
+[00:05:11]   server.c
+[00:05:12]      Creating library C:/projects/libwebsockets/build/lib/Release/websockets.lib and object C:/projects/libwebsockets/build/lib/Release/websockets.exp
+[00:05:12]   websockets_shared.vcxproj -> C:\projects\libwebsockets\build\bin\Release\websockets.dll
+[00:05:14]   Building Custom Rule C:/projects/libwebsockets/CMakeLists.txt
+[00:05:14]   protocol_client_loopback_test.c
+[00:05:14]   getopt.c
+[00:05:14]   getopt_long.c
+[00:05:14]   gettimeofday.c
+[00:05:15]   Generating Code...
+[00:05:15]   protocol_client_loopback_test.vcxproj -> C:\projects\libwebsockets\build\bin\Release\protocol_client_loopback_test.dll
+[00:05:17]   Building Custom Rule C:/projects/libwebsockets/CMakeLists.txt
+[00:05:17]   protocol_dumb_increment.c
+[00:05:17]   getopt.c
+[00:05:17]   getopt_long.c
+[00:05:17]   gettimeofday.c
+[00:05:17]   Generating Code...
+[00:05:18]   protocol_dumb_increment.vcxproj -> C:\projects\libwebsockets\build\bin\Release\protocol_dumb_increment.dll
+[00:05:20]   Building Custom Rule C:/projects/libwebsockets/CMakeLists.txt
+[00:05:20]   protocol_lws_mirror.c
+[00:05:20]   getopt.c
+[00:05:20]   getopt_long.c
+[00:05:20]   gettimeofday.c
+[00:05:20]   Generating Code...
+[00:05:20]   protocol_lws_mirror.vcxproj -> C:\projects\libwebsockets\build\bin\Release\protocol_lws_mirror.dll
+[00:05:23]   Building Custom Rule C:/projects/libwebsockets/CMakeLists.txt
+[00:05:23]   sshd.c
+[00:05:23]   telnet.c
+[00:05:23]   kex-25519.c
+[00:05:23]   chacha.c
+[00:05:24]   ed25519.c
+[00:05:24]   fe25519.c
+[00:05:24]   ge25519.c
+[00:05:24]   poly1305.c
+[00:05:24]   sc25519.c
+[00:05:25]   smult_curve25519_ref.c
+[00:05:25]   getopt.c
+[00:05:25]   getopt_long.c
+[00:05:25]   gettimeofday.c
+[00:05:25]   Generating Code...
+[00:05:26]   protocol_lws_ssh_base.vcxproj -> C:\projects\libwebsockets\build\bin\Release\protocol_lws_ssh_base.dll
+[00:05:28]   Building Custom Rule C:/projects/libwebsockets/CMakeLists.txt
+[00:05:28]   protocol_lws_sshd_demo.c
+[00:05:28]   getopt.c
+[00:05:28]   getopt_long.c
+[00:05:28]   gettimeofday.c
+[00:05:28]   Generating Code...
+[00:05:29]   protocol_lws_sshd_demo.vcxproj -> C:\projects\libwebsockets\build\bin\Release\protocol_lws_sshd_demo.dll
+[00:05:31]   Building Custom Rule C:/projects/libwebsockets/CMakeLists.txt
+[00:05:31]   protocol_lws_status.c
+[00:05:31]   getopt.c
+[00:05:31]   getopt_long.c
+[00:05:31]   gettimeofday.c
+[00:05:31]   Generating Code...
+[00:05:32]   protocol_lws_status.vcxproj -> C:\projects\libwebsockets\build\bin\Release\protocol_lws_status.dll
+[00:05:34]   Building Custom Rule C:/projects/libwebsockets/CMakeLists.txt
+[00:05:34]   protocol_table_dirlisting.c
+[00:05:34]   getopt.c
+[00:05:34]   getopt_long.c
+[00:05:34]   gettimeofday.c
+[00:05:35]   Generating Code...
+[00:05:35]   protocol_lws_table_dirlisting.vcxproj -> C:\projects\libwebsockets\build\bin\Release\protocol_lws_table_dirlisting.dll
+[00:05:37]   Building Custom Rule C:/projects/libwebsockets/CMakeLists.txt
+[00:05:37]   protocol_post_demo.c
+[00:05:37]   getopt.c
+[00:05:37]   getopt_long.c
+[00:05:37]   gettimeofday.c
+[00:05:38]   Generating Code...
+[00:05:38]   protocol_post_demo.vcxproj -> C:\projects\libwebsockets\build\bin\Release\protocol_post_demo.dll
+[00:05:40]   Building Custom Rule C:/projects/libwebsockets/CMakeLists.txt
+[00:05:40]   alloc.c
+[00:05:40]   buflist.c
+[00:05:40]   context.c
+[00:05:41]   lws_dll2.c
+[00:05:41]   libwebsockets.c
+[00:05:41]   logs.c
+[00:05:41]   system.c
+[00:05:42]   base64-decode.c
+[00:05:42]   lws-ring.c
+[00:05:42]   vfs.c
+[00:05:42]   dummy-callback.c
+[00:05:43]   output.c
+[00:05:43]   close.c
+[00:05:43]   network.c
+[00:05:43]   vhost.c
+[00:05:44]   pollfd.c
+[00:05:44]   service.c
+[00:05:44]   sorted-usec-list.c
+[00:05:44]   state.c
+[00:05:45]   stats.c
+[00:05:45]   Generating Code...
+[00:05:45]   Compiling...
+[00:05:45]   wsi.c
+[00:05:45]   wsi-timeout.c
+[00:05:46]   adopt.c
+[00:05:46]   ops-pipe.c
+[00:05:46]   sequencer.c
+[00:05:46]   header.c
+[00:05:47]   parsers.c
+[00:05:47]   ops-h1.c
+[00:05:47]   ops-ws.c
+[00:05:47]   client-ws.c
+[00:05:48]   client-parser-ws.c
+[00:05:48]   server-ws.c
+[00:05:48]   ops-raw-skt.c
+[00:05:48]   ops-raw-file.c
+[00:05:49]   lwsac.c
+[00:05:49]   cached-file.c
+[00:05:49]   connect.c
+[00:05:49]   client.c
+[00:05:50]   client-http.c
+[00:05:50]   client-handshake.c
+[00:05:50]   Generating Code...
+[00:05:51]   Compiling...
+[00:05:51]   ops-listen.c
+[00:05:51]   tls.c
+[00:05:51]   tls-network.c
+[00:05:51]   openssl-tls.c
+[00:05:52]   openssl-x509.c
+[00:05:52]   openssl-ssl.c
+[00:05:52]   lws-genhash.c
+[00:05:52]   lws-genrsa.c
+[00:05:52]   lws-genaes.c
+[00:05:53]   lws-genec-common.c
+[00:05:53]   lws-genec.c
+[00:05:53]   lws-gencrypto.c
+[00:05:54]   tls-server.c
+[00:05:54]   openssl-server.c
+[00:05:54]   tls-client.c
+[00:05:54]   openssl-client.c
+[00:05:54]   sha-1.c
+[00:05:55]   http2.c
+[00:05:55]   hpack.c
+[00:05:55]   ops-h2.c
+[00:05:55]   Generating Code...
+[00:05:56]   Compiling...
+[00:05:56]   windows-fds.c
+[00:05:56]   windows-file.c
+[00:05:56]   windows-init.c
+[00:05:57]   windows-misc.c
+[00:05:57]   windows-pipe.c
+[00:05:57]   windows-plugins.c
+[00:05:57]   windows-service.c
+[00:05:58]   windows-sockets.c
+[00:05:58]   lws-spa.c
+[00:05:58]   poll.c
+[00:05:58]   libuv.c
+[00:05:59]   lejp.c
+[00:05:59]   lws-gencrypto-common.c
+[00:05:59]   gettimeofday.c
+[00:05:59]   Generating Code...
+[00:06:00]   server.c
+[00:06:00]   server.c
+[00:06:01]   websockets.vcxproj -> C:\projects\libwebsockets\build\lib\Release\websockets_static.lib
+[00:06:03]   Building Custom Rule C:/projects/libwebsockets/CMakeLists.txt
+[00:06:03]   test-client.c
+[00:06:03]   getopt.c
+[00:06:03]   getopt_long.c
+[00:06:03]   gettimeofday.c
+[00:06:04]   Generating Code...
+[00:06:04]   test-client.vcxproj -> C:\projects\libwebsockets\build\bin\Release\libwebsockets-test-client.exe
+[00:06:06]   Building Custom Rule C:/projects/libwebsockets/CMakeLists.txt
+[00:06:06]   test-lejp.c
+[00:06:06]   getopt.c
+[00:06:06]   getopt_long.c
+[00:06:06]   gettimeofday.c
+[00:06:07]   Generating Code...
+[00:06:07]   test-lejp.vcxproj -> C:\projects\libwebsockets\build\bin\Release\libwebsockets-test-lejp.exe
+[00:06:09]   Building Custom Rule C:/projects/libwebsockets/CMakeLists.txt
+[00:06:09]   test-server.c
+[00:06:09]   getopt.c
+[00:06:09]   getopt_long.c
+[00:06:09]   gettimeofday.c
+[00:06:10]   Generating Code...
+[00:06:10]   test-server.vcxproj -> C:\projects\libwebsockets\build\bin\Release\libwebsockets-test-server.exe
+[00:06:12]   Building Custom Rule C:/projects/libwebsockets/CMakeLists.txt
+[00:06:12] cd %APPVEYOR_BUILD_FOLDER%
+[00:06:12] mkdir staging
+[00:06:12] mkdir staging\include
+[00:06:12] cp -r %APPVEYOR_BUILD_FOLDER%\build\bin %APPVEYOR_BUILD_FOLDER%\build\lib staging
+[00:06:13] if EXIST staging\bin\share mv staging\bin\share staging
+[00:06:13] if NOT EXIST staging\share\libwebsockets-test-server mkdir staging\share\libwebsockets-test-server
+[00:06:13] IF EXIST %APPVEYOR_BUILD_FOLDER%\build\libwebsockets-test-server.pem cp %APPVEYOR_BUILD_FOLDER%\build\libwebsockets-test-server.pem staging\share\libwebsockets-test-server
+[00:06:13] IF EXIST %APPVEYOR_BUILD_FOLDER%\build\libwebsockets-test-server.key.pem cp %APPVEYOR_BUILD_FOLDER%\build\libwebsockets-test-server.key.pem staging\share\libwebsockets-test-server
+[00:06:13] IF EXIST %APPVEYOR_BUILD_FOLDER%\build\lws_config.h cp %APPVEYOR_BUILD_FOLDER%\build\lws_config.h staging\include
+[00:06:13] cp %APPVEYOR_BUILD_FOLDER%\include\libwebsockets.h staging\include
+[00:06:13] cp -r %APPVEYOR_BUILD_FOLDER%\include\libwebsockets staging\include
+[00:06:13] 7z a build\lws-%LWS_METHOD%-%APPVEYOR_BUILD_ID%.zip %APPVEYOR_BUILD_FOLDER%\staging\*
+[00:06:14] 
+[00:06:14] 7-Zip 19.00 (x64) : Copyright (c) 1999-2018 Igor Pavlov : 2019-02-21
+[00:06:14] 
+[00:06:14] Scanning the drive:
+[00:06:14] 11 folders, 96 files, 8364480 bytes (8169 KiB)
+[00:06:14] 
+[00:06:14] Creating archive: build\lws-x64-31790459.zip
+[00:06:14] 
+[00:06:14] Add new data to archive: 11 folders, 96 files, 8364480 bytes (8169 KiB)
+[00:06:14] 
+[00:06:14] 
+[00:06:14] Files read from disk: 96
+[00:06:14] Archive size: 5017438 bytes (4900 KiB)
+[00:06:14] Everything is Ok
+[00:06:14] Discovering tests...OK
+[00:06:14] Collecting artifacts...
+[00:06:14] Found artifact 'build\lws-x64-31790459.zip' matching 'build\lws-x64-31790459.zip' path
+[00:06:14] Uploading artifacts...
+[00:06:14] 
+[00:06:15] [1/1] build\lws-x64-31790459.zip (5,017,438 bytes)...2%
+[00:06:15] [1/1] build\lws-x64-31790459.zip (5,017,438 bytes)...10%
+[00:06:15] [1/1] build\lws-x64-31790459.zip (5,017,438 bytes)...20%
+[00:06:15] [1/1] build\lws-x64-31790459.zip (5,017,438 bytes)...40%
+[00:06:15] [1/1] build\lws-x64-31790459.zip (5,017,438 bytes)...50%
+[00:06:15] [1/1] build\lws-x64-31790459.zip (5,017,438 bytes)...70%
+[00:06:15] [1/1] build\lws-x64-31790459.zip (5,017,438 bytes)...80%
+[00:06:15] [1/1] build\lws-x64-31790459.zip (5,017,438 bytes)...100%
+[00:06:16] Build success

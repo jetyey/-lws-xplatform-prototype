@@ -1,0 +1,9 @@
+*.DS_Store
+*~$*
+DerivedData/
+*Browse.VC*
+*Solution.VC*
+*.suo
+*.ipch
+x64
+enc_temp_folder

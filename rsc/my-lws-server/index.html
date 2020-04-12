@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<title>my-lws-server</title>
+<style>
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+}
+
+#myBar {
+  width: 0%;
+  height: 15px;
+  background-color: #4CAF50;
+  text-align: center;
+  line-height: 15px;
+  color: white;
+}
+</style>
+  <script type="text/javascript">
+    function XMLHttpRequestGet() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("name2").innerHTML = this.responseText;
+        }
+      };
+      var query = "/get_form?get_message=" + document.getElementById("name2x").value;
+      xhttp.open("GET", query, true);
+      xhttp.send();
+    }
+  </script>
+<body onload="init();">
+  <fieldset>
+    <legend>HTTP Simple GET</legend>
+    <form action="/get_form" method="get">
+      <label for="name">Enter your name: </label>
+      <input type="text" name="get_name" id="name" required>
+      <input type="submit" value="Go GET!">
+    </form>
+  </fieldset>
+    <br/>
+  <fieldset>
+    <legend>XMLHttpRequest GET</legend>
+      <span>Enter your message: </span><input type="text" name="get_name" id="name2x" required><button type="button" onclick="XMLHttpRequestGet()">Go GET!</button><br/><p id="name2"></p>
+  </fieldset>
+  <br/>
+  <fieldset>
+    <legend>HTTP Multipart POST</legend>
+    <form id="post_upload_form" action="/post_form" method="post" enctype="multipart/form-data" >
+      <label for="name">Enter your name: </label>
+      <input type="text" name="post_name" id="name">
+      <label for="myfile">Select a file:</label>
+      <input type="file" id="myfile" name="post_file" multiple>
+      <input type="submit" value="Go POST!" />
+    </form>
+  </fieldset>
+	<br/>
+  <fieldset>
+    <legend>XMLHttpRequest Multipart POST</legend>
+        <p>Clients Connected: <span id="connected_upload"></span></p>
+    <form id="xmlhttprequest_post_upload_form" action="/post_form" method="post" enctype="multipart/form-data" >
+      <label for="name">Enter your name: </label>
+      <input type="text" name="post_name" id="name">
+      <label for="myfile">Select a file:</label>
+      <input type="file" id="myfile" name="post_file" multiple>
+      <input type="submit" value="Go POST!" />
+    </form>
+        <p id="message_upload"></p>
+  </fieldset>
+  <br/>
+  <fieldset>
+    <legend>WebSockets Chat Demo</legend>
+    <p>Clients Connected: <span id="connected_chat"></span></p>
+    <input type="text" id="id1"/><button onclick="onsend_chat();">Send Message</button>
+    <p id="message"></p>
+  </fieldset>
+  <script type="text/javascript">
+  // The Javascript
+var form = document.getElementById('xmlhttprequest_post_upload_form');
+form.onsubmit = function() {
+
+  var formData = new FormData(form);
+  //var fileInput = document.getElementById('myfile');
+  //var file = fileInput.files[0];
+  //formData.append('post_file', file);
+
+  var xhr = new XMLHttpRequest();
+  // Add any event handlers here...
+  xhr.open('POST', form.getAttribute('action'), true);
+  xhr.send(formData);
+
+  return false; // To avoid actual submission of the form
+}
+
+  function set(msg, id) { document.getElementById(id).innerHTML = msg; }
+  function update(msg, id) { document.getElementById(id).innerHTML += msg; document.getElementById(id).innerHTML += "<br/>"; }
+    
+  var socket_chat = null;
+  var socket_upload = null;
+  
+  /**/
+  function startws_chat(websocketServerLocation, protocol){
+    if(null == socket_chat) socket_chat = new WebSocket(websocketServerLocation, protocol);
+    socket_chat.onopen = function() { update("++ chat opened ++", "message"); console.log("socket_chat open"); }
+    socket_chat.onclose = function(){
+      update("-- chat closed --", "message");
+      console.log("socket_chat close");
+      // Try to reconnect in 3 seconds
+      setTimeout(function(){ socket_chat = null; startws_chat(websocketServerLocation, protocol); }, 3000);
+    };
+    socket_chat.onmessage = function(msg){
+      // JS does not support null-terminated strings.
+      str = msg.data.toString().split("\0").shift();
+      console.log("socket chat message: " + str);  
+      var obj = JSON.parse(str);
+      if(obj.message) {
+       update(obj.message, "message");
+      }
+      else if(obj.connected_chat) {
+        set(obj.connected_chat, "connected_chat");
+      }
+    }
+  }
+
+  /**/
+  function startws_upload(websocketServerLocation, protocol){
+    if(null == socket_upload) socket_upload = new WebSocket(websocketServerLocation, protocol);
+    socket_upload.onopen = function() { console.log("socket_upload open"); }
+    socket_upload.onclose = function(){
+      console.log("socket_upload close");
+      // Try to reconnect in 3 seconds
+      setTimeout(function(){ socket_upload = null; startws_upload(websocketServerLocation, protocol); }, 3000);
+    };
+    socket_upload.onmessage = function(msg){
+      // JS does not support null-terminated strings.
+      str = msg.data.toString().split("\0").shift();
+      console.log("socket upload message: " + str);  
+      var obj = JSON.parse(str);
+      if(obj.message) {
+       update(obj.message, "message");
+      }
+      else if(obj.connected_upload) {
+        set(obj.connected_upload, "connected_upload");
+      }
+    }
+  }
+  
+  function init() {
+    startws_chat("wss://" + document.domain + ':' + location.port, "protocol-chat");
+    startws_upload("wss://" + document.domain + ':' + location.port, "protocol-upload");
+  }
+  
+  function onsend_chat() {
+   var inputF = document.getElementById("id1");
+   socket_chat.send(inputF.value);
+   inputF.value="";
+  }
+    
+  var elem = document.getElementById("myBar");
+  if(null != elem) {
+    elem.style.width = "0%";
+    elem.innerHTML = "0%";
+  }
+    
+  function sendFile() {
+    var Files = document.getElementById('myfilews').files;
+    var total = Files.length; loaded = 0;
+    for (var i = 0; i < Files.length; i++) {
+      var file = Files[i];
+      var fileReader = new FileReader();
+      var rawData = new ArrayBuffer();
+      if(null != elem) {
+        elem.style.width = "0%";
+        elem.innerHTML = "0%";
+      }
+      fileReader.binaryType = "arraybuffer";
+      fileReader.fileName = file.name,
+      fileReader.size = file.size;
+      fileReader.onload = function(e) {
+        socket_upload.send("{\"name\"\:\"post_file\"," + "\"filename\":\"" + e.target.fileName + "\",\"size\":\"" + e.target.size + "\"}");
+        rawData = e.target.result;
+        socket_upload.send(rawData);
+        loaded++;
+        if (loaded == total){
+          if(null != elem) {
+            elem.style.width = "0%";
+            elem.innerHTML = "0%";
+          }
+        }
+      }
+      fileReader.onprogress = function(data) {
+        if (data.lengthComputable) {                                            
+          var progress = parseInt( ((data.loaded / data.total) * 100), 10 );
+          if(null != elem) {
+            elem.style.width = progress + "%";
+            elem.innerHTML = progress  + "%";
+          }
+        }
+      }
+      fileReader.readAsArrayBuffer(file);
+    }
+  }
+</script>
+</body>
+</html>

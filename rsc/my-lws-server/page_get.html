@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>my-lws-server</title>
+  <script type="text/javascript">
+    function printGetParameter(id) {
+      var elem = document.getElementById(id)
+      var tmp = [];
+      var items = location.search.substr(1).split("&");
+      for (var index = 0; index < items.length; index++) {
+        tmp = items[index].split("=");
+        elem.innerHTML = decodeURIComponent(tmp[0]) + " == " + decodeURIComponent(tmp[1]);
+      }
+    }
+
+    function init() {
+      printGetParameter("get_result");
+    }
+  </script>
+</head>
+<body onload="init();">
+  <p id="get_result"></p>
+  <br/>
+  <br/>
+  <a href="/">Home</a>
+</body>
+</html>
